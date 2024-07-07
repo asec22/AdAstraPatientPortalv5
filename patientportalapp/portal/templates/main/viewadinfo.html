@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h3>Administrator Information</h3>
+<table class="table table-bordered border-primary">
+    <tr><td>Name</td><td>{{info.name}}</td></tr>
+    <tr><td>Administrator ID</td><td>{{info.pid}}</td></tr>
+    <tr><td>Administrator Titles/Certificates</td><td>{{info.role}}</td></tr>
+    <tr><td>License Number</td><td>{% if info.license_number %}{{info.license_number}}{% endif %}</td></tr>
+    <tr><td>NPI Number</td><td>{% if info.npi_number %}{{info.npi_number}}{% endif %}</td></tr>
+</table>    
+<table class="table table-bodered border-primary">
+    <tr><td colspan='2' style="text-align: center;"><a href="/portal" class="button-link"><button class="green">Return to Portal</button></a></td></tr>
+</table> 
+{% endblock %}   

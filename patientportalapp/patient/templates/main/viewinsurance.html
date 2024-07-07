@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Insurance Information for {{name}}</h2>
+<br/>
+{% for pt in info %}
+<table class="table table-bordered border-primary">
+    <tr><td>Insurance Company</td><td>{{pt.insurance_company}}</td></tr>
+    <tr><td>Group Provider and Policy Number</td><td>{{pt.groupandnumber}}</td></tr>
+    <tr><td>Address</td><td>{{pt.streetandnumber}}<br/>{{pt.city}},{{pt.state}} {{pt.zip}}</td></tr>
+    <tr><td>Phone Number</td><td>{{pt.phone.as_national}}</td></tr>
+    <tr><td>Fax Number</td><td>{% if pt.fax %}{{pt.fax.as_national}}{% endif %}</td></tr>
+    <tr><td>Email</td><td>{% if pt.email %}{{pt.email}}{% endif %}</td></tr>
+</table>        
+{% endfor %} 
+<table class="table table-bodered border-primary">
+    <tr><td style="text-align: center;"><a href="/{{name}}" class="button-link"><button class="green">Patient Information</button></a></td></tr>
+</table>           
+{% endblock %}

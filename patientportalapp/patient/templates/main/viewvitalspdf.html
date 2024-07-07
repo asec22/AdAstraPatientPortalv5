@@ -1,0 +1,19 @@
+<html>
+<head></head>
+<body>
+<h2> Patient vitals for {{name}}</h2>
+<br/>
+{% for pt in info %}
+<table>
+    <tr><td>Time</td><td>{{pt.dtime}}</td></tr>
+    <tr><td>Height</td><td>{{pt.height}}</td></tr>
+    <tr><td>Weight</td><td>{{pt.weight}}</td></tr>
+    <tr><td>Temperature</td><td>{{pt.temperature}}</td></tr>
+    <tr><td>Repiration</td><td>{{pt.resp_rate}}</td></tr>
+    <tr><td>Pulse</td><td>{{pt.pulse}}</td></tr>
+    <tr><td>Oxygen Saturation</td><td>{{pt.oxy_sat}}</td></tr>
+    <tr><td>Blood Pressure</td><td>{{pt.blood_pressure}}</td></tr>    
+</table>
+{% endfor %}    
+</body>
+</html>    

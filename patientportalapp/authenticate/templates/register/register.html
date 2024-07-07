@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% block title %} Create an Account {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Register</h1>
+<p>Please complete the form to register for access to the Patient Portal.</p>
+<p>You must be a patient/provider to register an account.</p>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<form method="post" class="forms-group">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="green" >Register</button>
+</form> 
+{% endblock %}

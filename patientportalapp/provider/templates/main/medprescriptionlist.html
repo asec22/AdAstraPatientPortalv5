@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Patient List </h2>
+<br/>
+<table class="table table-bordered border-primary">
+{% for k,l in zip_list %}
+    <tr><td><a href="/portal/provider/{{name}}/{{k}}/{{l}}/viewmedprescription/">{{j}}-{{k}}-{{l}}</a></td>
+    <td style="text-align: right;"><form action="/portal/provider/{{name}}/{{k}}/{{l}}/viewmedprescription/" method="post">{% csrf_token %}<button type="submit" class="green">Print Prescription</button></form></td>
+    </tr>
+{% endfor %}
+    <tr><td colspan="2" style="text-align: center;"><a href="/portal/provider/{{name}}/entermedprescription" class="button-link"><button class="green">Add Prescription</button></a> </td></tr>
+<table>  
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Administrator List </h2>
+<br/>
+<table class="table table-bordered border-primary">
+{% for pt in adlist %}
+    <tr><td><a href="/portal/administrator/{{pt}}">{{pt}}</a></td></tr>
+{% endfor %}
+    <tr><td><a href="/portal/createad/" class="button-link"><button class="green">Add Administrator</button></a> </td></tr>
+<table>  
+
+{% endblock %}

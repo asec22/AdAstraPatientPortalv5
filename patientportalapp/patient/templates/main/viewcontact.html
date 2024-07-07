@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Contact Information for {{name}}</h2>
+<br/>
+{% for pt in info %}
+<table class="table table-bordered border-primary">
+    <tr><td>Address</td><td>{{pt.streetandnumber}}<br/>{{pt.city}}, {{pt.state}} {{pt.zip}}</td></tr>
+    <tr><td>Phone Numbers</td><td>{{pt.phone1.as_national}}<br/>{% if pt.phone2 %} {{pt.phone2.as_national}}{% endif %}</td></tr>
+    <tr><td>Email</td><td>{{pt.email}}</td></tr>
+</table>        
+{% endfor %}
+<table class="table table-bodered border-primary">
+    <tr><td style="text-align: center;"><a href="/portal/patient/{{name}}" class="button-link"><button class="green">Patient Information</button></a></td></tr>
+</table>            
+{% endblock %}

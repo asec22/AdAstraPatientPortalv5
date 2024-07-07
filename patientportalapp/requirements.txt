@@ -1,0 +1,15 @@
+django
+whitenoise
+reportlab
+django-allauth
+crispy
+crispy-bootstrap4
+requests
+PyJWT
+cryptography
+pytz
+plotly
+django-phonenumber-field
+phonenumbers
+reportlab
+requests

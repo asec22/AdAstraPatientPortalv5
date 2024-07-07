@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+
+
+
+{% block content %}
+<h2> Patient Information </h2>
+<br/>
+<table class="table">
+    <tr>
+        <td style="text-align: center;"><a href="patientsummary/"><button class="green">Patient Summary</button></a></td>
+
+    </tr>
+</table>
+<br/>
+<table class="table table-bordered border-primary">
+    <tr><td>Name</td><td>{{info.name}}</td></tr>
+    <tr><td>Patient Id</td><td>{{info.pid}}</td></tr>
+    <tr><td>Birthdate</td><td>{{info.bdate}}</td></tr>
+    <tr><td>Age</td><td>{{info.age}}</td></tr>
+    <tr><td>Gender(M/F/O)</td><td>{{info.gender}}</td></tr>
+    <tr><td>Doctor</td><td>{% for provider in info.provider.all %}
+        {{ provider.name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}</td></tr>
+    <tr><td>History</td><td>{{info.hist}}</td></tr>
+</table>    
+<br/>
+<table class="table">
+    <tr><td style="text-align: center;"><a href="/portal" class="button-link"><button class="green">Return to Portal</button></a></td></tr>
+</table>
+{% if role == "patient" %}
+    <table class="table table-bordered border-primary">
+        <tr><td>Contact Information</td><td style="text-align: right;"><a href="viewcontact/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Emergency Contact Information</td><td style="text-align: right;"><a href="viewecontact/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Insurance Information</td><td style="text-align: right;"><a href="viewinsurance/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Vitals</td><td style="text-align: right;"><a href="viewvitals/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Visits</td><td style="text-align: right;"><a href="viewvisits/" class="button-link"><button class="green">View</button></a></td></tr> 
+    </table>
+{% else %}
+    <table class="table table-bodered border-primary">
+        <tr><td colspan='2' style="text-align: center;"><a href="/viewpatlist" class="button-link"><button class="green">Return to Patient List</button></a></td></tr>
+        <tr><td>Contact Information</td>
+            <td style="text-align: right;"><a href="entercontact/" class="button-link"><button class="green">Add</button></a>
+                <a href="viewcontact/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Emergency Contact Information</td>
+            <td style="text-align: right;"><a href="enterecontact/" class="button-link"><button class="green">Add</button></a>
+                <a href="viewecontact/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Insurance Information</td>
+            <td style="text-align: right;"><a href="enterinsurance/" class="button-link"><button class="green">Add</button></a>
+                <a href="viewinsurance/" class="button-link"><button class="green">View</button></a></tr>
+        <tr><td>Vitals</td>
+            <td style="text-align: right;"><a href="entervitals/" class="button-link"><button class="green">Add</button></a>
+                <a href="viewvitals/" class="button-link"><button class="green">View</button></a></td></tr>
+        <tr><td>Visits</td>
+            <td style="text-align: right;"><a href="entervisit/" class="button-link"><button class="green">Add</button></a>
+                <a href="viewvisits/" class="button-link"><button class="green">View</button></a></td></tr> 
+{% endif %}       
+{% endblock %}

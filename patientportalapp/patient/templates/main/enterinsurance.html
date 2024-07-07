@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<h2>Enter Insurance Information for {{name}}</h2>
+<form method="post" action="#" class="form-group">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit", name="save" class="green">Save</button>
+</form>                           
+{% endblock %}

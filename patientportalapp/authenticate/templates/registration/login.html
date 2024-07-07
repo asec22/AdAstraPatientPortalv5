@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block title %}Login Here{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" action="{% url 'login' %}" class="forms-group">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="green">Login</button>
+    <p>Don't have an account? Create one <a href="/register">here</a>.
+</form>    
+{% endblock %}

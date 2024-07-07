@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Patient visits for {{name}}</h2>
+<br/>
+{% for pt in info %}
+<table class="table table-bordered border-primary">
+    <tr><td>Time</td><td>{{pt.time}}</td></tr>
+    <tr><td>Reason for Visit</td><td>{{pt.reason}}</td></tr>
+    <tr><td>Diagnosis</td><td>{{pt.dx}}</td></tr>
+    <tr><td>Prescriptions Ordered</td><td>{{pt.px}}</td></tr>
+    <tr><td>Laboratories Ordered</td><td>{{pt.lx}}</td></tr>
+    <tr><td>Procedures Ordered</td><td>{{pt.prx}}</td></tr>
+    <tr><td>Patient Instructions</td><td>{{pt.patinst}}</td></tr>
+</table>        
+{% endfor %}  
+<table class="table table-bodered border-primary">
+    <tr><td style="text-align: center;"><a href="/portal/patient/{{name}}" class="button-link"><button class="green">Patient Information</button></a></td></tr>
+</table>          
+{% endblock %}

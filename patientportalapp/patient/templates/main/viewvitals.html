@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Patient Vitals for {{name}}</h2>
+<br/>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="plotly-graph"></div>
+<script>
+var graphJSON = {{ graph_json|safe }};  
+Plotly.newPlot('plotly-graph', graphJSON.data, graphJSON.layout,{displayModeBar:false});
+</script>
+
+<br/>    
+{% for pt in info %}
+<table class="table table-bordered border-primary">
+    <tr><td>Time</td><td>{{pt.time}}</td></tr>
+    <tr><td>Height in feet-inch (inches)</td><td>{{pt.height}} ({{pt.height_inch}})</td></tr>
+    <tr><td>Weight in pounds</td><td>{{pt.weight}}</td></tr>
+    <tr><td>Temperature in degrees F</td><td>{{pt.temperature}}</td></tr>
+    <tr><td>Repiration in breaths/minute</td><td>{{pt.resp_rate}}</td></tr>
+    <tr><td>Pulse in hearthbeats/minute</td><td>{{pt.pulse}}</td></tr>
+    <tr><td>Oxygen Saturation in % of O2</td><td>{{pt.oxy_sat}}</td></tr>
+    <tr><td>Blood Pressure (systolic/diastolic) in mmmHg</td><td>{{pt.blood_pressure}}</td></tr>
+</table>        
+{% endfor %}
+<table class="table table-bodered border-primary">
+    <tr><td style="text-align: center;"><a href="/portal/patient/{{name}}" class="button-link"><button class="green">Patient Information</button></a></td></tr>
+</table>            
+{% endblock %}

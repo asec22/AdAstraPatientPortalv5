@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2> Provider List </h2>
+<br/>
+<table class="table table-bordered border-primary">
+{% for pt in provlist %}
+    <tr><td><a href="/portal/provider/{{pt}}">{{pt}}</a></td></tr>
+{% endfor %}
+    <tr><td><a href="/portal/createprov/" class="button-link"><button class="green">Add Provider</button></a> </td></tr>
+<table>  
+
+{% endblock %}

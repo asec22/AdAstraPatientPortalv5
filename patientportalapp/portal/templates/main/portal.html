@@ -1,0 +1,72 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.groups.all.0.name == 'Administrator' %}
+        <h1>Welcome, {{name}}!</h1>
+        <br/>
+        <br/>
+        <table class="table table-bordered border-primary">
+            <tr><td>Administration</td>
+                <td style="text-align: right;"><a href="administrator/{{name}}" class="button-link">
+                <button class="green">Profile</button></a>
+                <a href="/admin" class="button-link">
+                <button class="green">Site Administration</button></a></td>
+            </tr>
+            <tr><td>Patients</td>
+                <td style="text-align: right;"><a href="createpat/" class="button-link">
+                <button class="green">Add</button></a>
+                <a href="viewpatlist/" class="button-link">
+                <button class="green">List</button></a></td>    
+            </tr>
+            <tr><td>Providers</td>
+                <td style="text-align: right;"><a href="createprov/" class="button-link">
+                <button class="green">Add</button></a>
+                <a href="viewprovlist/" class="button-link">
+                <button class="green">List</button></a></td>    
+            </tr>
+            <tr><td>Administrators</td>
+                <td style="text-align: right;"><a href="createad/" class="button-link">
+                <button class="green">Add</button></a>
+                <a href="viewadlist/" class="button-link">
+                <button class="green">List</button></a></td>    
+            </tr>               
+        </table>
+    {% elif user.groups.all.0.name == 'Provider' %}
+        <h1>Welcome, {{name}}!</h1>
+        <br/>
+        <br/>
+        <table class="table table-bordered border-primary">
+            <tr><td>Profile</td>
+                <td style="text-align: right;"><a href="provider/{{name}}/" class="button-link">
+                <button class="green">Profile</button></a></td>
+            <tr><td>Patients</td>
+                <td style="text-align: right;"><a href="createpat/" class="button-link">
+                <button class="green">Add</button></a>
+                <a href="viewpatlist/" class="button-link">
+                <button class="green">List</button></a></td>
+            </tr>
+            <tr><td>Prescriptions</td>
+                <td style="text-align: right;"><a href="/portal/provider/{{name}}/entermedprescription/" class="button-link">
+                <button class="green">Add</button></a>
+                <a href="/portal/provider/{{name}}/viewprescriptionlist/" class="button-link">
+                <button class="green">List</button></a></td>
+            </tr>
+        </table>
+    {% else %}
+        <h1>Welcome, {{name}}!</h1>
+        <br/>
+        <br/>
+        <table class="table table-bordered border-primary">
+            <tr><td>Profile and Health Data</td>
+                <td style="text-align: right;"><a href="patient/{{name}}/" class="button-link">
+                <button class="green">Profile</button></a></td>
+            </tr>
+
+        </table>
+    {% endif %}
+{% else %}
+    <h1>Welcome to Ad Astra Patient Portal!</h1>
+    <p>Please register/login to access the portal!</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h2>Provider Information</h2>
+<table class="table table-bordered border-primary">
+    <tr><td>Name</td><td>{{info.name}}</td></tr>
+    <tr><td>Provider ID</td><td>{{info.pid}}</td></tr>
+    <tr><td>Provider Title</td><td>{{info.role}}</td></tr>
+    <tr><td>License Number</td><td>{{info.license_number}}</td></tr>
+    <tr><td>NPI Number</td><td>{{info.npi_number}}</td></tr>
+    <tr><td>DEA Number</td><td>{{info.dea_number}}</td></tr>
+</table>
+<table class="table table-bodered border-primary">
+    <tr><td>Contact Info</td><td style="text-align: right;">
+        <a href="/portal/provider/{{info.name}}/entercontact" class="button-link">
+        <button class="green">Add</button></a>
+        <a href="/portal/provider/{{info.name}}/viewcontact" class="button-link">
+        <button class="green">View</button></a></td></tr>    
+</table>
+<table class="table table-bodered border-primary">
+    <tr><td colspan='2' style="text-align: center;"><a href="/portal" class="button-link"><button class="green">Return to Portal</button></a></td></tr>
+</table> 
+{% endblock %}   

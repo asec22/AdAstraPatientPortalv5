@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h1>Prescription of {{med}} for {{name2}} </h1>
+<br/>
+<br/>
+{% if role == "print" %}
+{% load crispy_forms_tags %}
+<form action="/portal/provider/{{name1}}/{{name2}}/{{med}}/printmedprescription/" method="post">
+    {% csrf_token %}  
+    {{form|crispy}} 
+    <button type="submit" class='green'>Print Prescription</button>
+</table>
+</form>
+{% else %}
+<table class="table table-bordered bordered-primary">
+    <tr><td>Patient Name</td><td>{{info.pat_name}}"</td></tr>
+    <tr><td>Medicine Name</td><td>{{info.med_name}}</td></tr>
+    <tr><td>Dose</td><td>{{info.dose}}</td></tr>
+    <tr><td>Supply</td><td>{{info.supply}}</td></tr>
+    <tr><td>By</td><td>{{info.by}}</td></tr>
+    <tr><td>Period/Frequency</td><td>{{info.period}}</td></tr>
+    <tr><td>DX Code</td><td>{{info.dx_code}}</td></tr>
+    <tr><td>Label</td><td><input type="checkbox" {% if info.label %}checked{% endif %}></td></tr>
+    <tr><td>Generic</td><td><input type="checkbox" {% if info.generic %}checked{% endif %}></td></tr>
+</table>
+{% endif %}    
+{% endblock %}
