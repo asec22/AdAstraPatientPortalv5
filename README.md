@@ -1,1 +1,4 @@
-Hello! Welcome to Ad Astra Healtcare! Creating the new experience and functionality with patient/clinic administration in healtcare!  Our patient portal is just the beginning...  We are part of a team that works with space techonology applications to the wider world.  The patient portal is deplyed on Azure (F1-Basic) at [https://adastrapatientportalv3.azurewebsites.net/home/](https://adastrapatientportalv3.azurewebsites.net/home/).
+# Ad Astra Patient Portal
+## About
+
+The Ad Astra Healthcare Patient Portal is an example of creating functionality for specific cases, in this case, patient-centred administration in healtcare with space based application overlays!  Life Spectal Survey (of which the Ad Astra Campaign is a part) is crafting these types of solutions utilizing the space business industry methods. The patient portal is deployed [https://adastrapatientportalv3.azurewebsites.net/home/](https://adastrapatientportalv3.azurewebsites.net/home/).
